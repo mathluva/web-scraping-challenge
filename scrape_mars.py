@@ -12,7 +12,6 @@ def init_browser():
     return browser
 
 
-#print latest title
 def scrape1():  
     browser = init_browser() 
     url = 'https://mars.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2Ccreated_at+desc&search=&category=19%2C165%2C184%2C204&blank_scope=Latest'
@@ -129,4 +128,15 @@ def scrape4():
 
     print(dictionary)
 
-scrape4()    
+#scrape4()    
+
+def scrape():
+    key_list=["scrape1","scrape2","scrape3","scrape4"]
+    value_list=[scrape1(),scrape2(),scrape3(),scrape4()]
+
+    for key,value in zip(key_list,value_list):
+        dictionary ={}
+        dictionary[key]=value
+    return dictionary
+
+scrape()
