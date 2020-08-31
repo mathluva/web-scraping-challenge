@@ -34,9 +34,7 @@ def scrape1():
     #close the browser after scraping
     browser.quit
 
-    print("The latest news title and paragraph text on the Nasa Mars News Site:")
-    print(f" '{latest_title}'")
-    print(f" {latest_paragraph}")
+    return(f"{latest_title}: \n {latest_paragraph}")
 
 #scrape1()
 
@@ -57,7 +55,7 @@ def scrape2():
 
     browser.quit
 
-    print(featured_image_url)
+    return(featured_image_url)
 
 #scrape2()
 
@@ -75,7 +73,7 @@ def scrape3():
 
     browser.quit
     
-    print(tables)
+    #print(tables)
 #scrape3()
 
 def scrape4():
@@ -126,17 +124,17 @@ def scrape4():
 
         browser.quit
 
-    print(dictionary)
+    return(url_list)
 
 #scrape4()    
 
 def scrape():
-    key_list=["scrape1","scrape2","scrape3","scrape4"]
-    value_list=[scrape1(),scrape2(),scrape3(),scrape4()]
+    dic = {}
 
-    for key,value in zip(key_list,value_list):
-        dictionary ={}
-        dictionary[key]=value
-    return dictionary
+    dic["scrape1"] = scrape1()
+    dic["scrape2"] = scrape2()
+    dic["scrape3"] = scrape3()
+    dic["scrape4"] = scrape4()
 
-scrape()
+    return(dic)
+    
